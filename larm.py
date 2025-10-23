@@ -42,7 +42,7 @@ def get_larm():
         for larm in sorted(list_larm, key=lambda x: x["type"]):
             print(f"{larm['type']} LARM AT: {larm['level']}%")
     input("press any key to return")
-
+#compares the level on diffrent components and the level on warning, writes the warning. compares in the list
 def controll(cpu, ram, disk):
     warning = []
     for larm in list_larm:
