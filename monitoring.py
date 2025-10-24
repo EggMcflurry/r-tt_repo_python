@@ -32,7 +32,7 @@ def list_status():
         print(f"DISK USAGE: {disk['percent']}% "
               f"({disk['used'] // (1024**3)} GB of {disk['total'] // (1024**3)} GB)")
 
-    input("\n----PRESS ANY KEY TO RETURN----.")
+    input("\n----PRESS ENTER TO RETURN----.")
 
 def get_monitoring():
     cpu = psutil.cpu_percent(interval=0.5)
