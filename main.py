@@ -33,6 +33,7 @@ def start_monitoring_2():
                 break
 
             time.sleep(2)
+        #controlls if you pressed ctrl+c 
     except KeyboardInterrupt:
         print("Monitoring interrupted.")
 
