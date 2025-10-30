@@ -1,4 +1,7 @@
 import psutil
+import time 
+import msvcrt
+import os
 
 monitoring_active = False
 latest_status = {}
@@ -39,3 +42,29 @@ def get_monitoring():
     ram = psutil.virtual_memory()
     disk = psutil.disk_usage('/')
     return cpu, ram.percent, disk.percent
+#give information about monotoring, updates every 2 sec  
+def start_monitoring_2():
+    print("Monotoring started.")
+    try:
+        while True:
+            cpu, ram, disk = get_monitoring()
+            print(f"Active")
+            print(f"CPU: {cpu}%  RAM: {ram}%  Disk: {disk}%")
+
+            larm_messages = controll  (cpu, ram, disk)
+            for message in larm_messages:
+                print(message)
+
+            print("Update: 2 sec")
+            print("==PRESS ENTER TO RETURN==")
+            
+
+            #controll if button have been pressed
+            if msvcrt.kbhit():
+                msvcrt.getch()
+                break
+
+            time.sleep(2)
+        #controlls if you pressed ctrl+c 
+    except KeyboardInterrupt:
+        print("Monitoring interrupted.")
